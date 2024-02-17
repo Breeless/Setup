@@ -22,14 +22,14 @@ Function Install-Essentials {
         'intel-chipset-device-software'
 
         #
-        ''
+        #''
     )
 
     Write-Host "Installing Windows Update Module"
     Install-Module PSWindowsUpdate -y
 
     Write-Host "Installing Chocolatey" -ForegroundColor Green
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
     
     ForEach ($Key in $Keys) {
